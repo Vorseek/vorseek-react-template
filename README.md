@@ -1,6 +1,6 @@
 # react-example
 
-[ ] - webpack config **WIP**.
+[ ] - webpack config **WIP**
 
 [ ] - babel
 
@@ -10,4 +10,6 @@
 
 [ ] - loading script component
 
-[ ] - code spliting (Loadable Components)
+[ ] - code spliting (Loadable Components), prefetch
+
+[ ] - react router
