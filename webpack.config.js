@@ -14,7 +14,6 @@ module.exports = {
     chunkFilename: isProd ? '[name]-[fullhash].js' : '[name].js',
     clean: true,
   },
-  target: 'web',
   stats: { modules: false, chunks: true },
   devtool: isProd ? false : 'eval-source-map',
   devServer: {
