@@ -15,7 +15,8 @@ module.exports = {
     clean: true,
   },
   target: 'web',
-  stats: { modules: false },
+  stats: { modules: false, chunks: true },
+  devtool: isProd ? false : 'eval-source-map',
   devServer: {
     port: '3001',
     static: {
