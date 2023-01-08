@@ -1,7 +1,11 @@
 import { createRoot } from 'react-dom/client';
-import { App } from '../src/App';
+import { App } from 'src/App';
 
 const container = document.getElementById('root');
+
+if (!container) {
+  throw new Error('Not found root id');
+}
 
 const root = createRoot(container);
 root.render(<App />);
