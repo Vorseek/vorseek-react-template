@@ -12,6 +12,7 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     filename: isProd ? '[name]-[fullhash].js' : '[name].js',
     chunkFilename: isProd ? '[name]-[fullhash].js' : '[name].js',
+    clean: true,
   },
   target: 'web',
   stats: { modules: false },
