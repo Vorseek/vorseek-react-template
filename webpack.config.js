@@ -5,14 +5,13 @@ const path = require('path');
 const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  entry: './public/index.tsx',
+  entry: './src/index.tsx',
   context: path.resolve(__dirname, './'),
   mode: isProd ? 'production' : 'development',
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: isProd ? '[name]-[fullhash].js' : '[name].js',
     chunkFilename: isProd ? '[name]-[fullhash].js' : '[name].js',
-    publicPath: '/',
   },
   target: 'web',
   stats: { modules: false },
@@ -22,8 +21,6 @@ module.exports = {
       directory: path.join(__dirname, 'public'),
     },
     open: true,
-    hot: true,
-    liveReload: true,
   },
   resolve: {
     plugins: [new TsconfigPathsPlugin()],
@@ -40,8 +37,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'public', 'index.html'),
-      favicon: path.join(__dirname, 'public', 'assets', 'favicon.ico'),
+      template: path.join(__dirname, 'src', 'index.html'),
+      favicon: path.join(__dirname, 'public', 'favicon.ico'),
     }),
   ],
 };
