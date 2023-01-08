@@ -1,15 +1,15 @@
-# react-example
+# React example app
 
-[ ] - webpack config **WIP**
+- [x] babel
 
-[ ] - babel
+- [ ] webpack config **WIP**
 
-[ ] - eslint / prettier / tsconfig
+- [ ] eslint / prettier / tsconfig **WIP**
 
-[ ] - module federation
+- [ ] loading script component
 
-[ ] - loading script component
+- [ ] code splitting (Loadable Components), prefetch
 
-[ ] - code spliting (Loadable Components), prefetch
+- [ ] react router
 
-[ ] - react router
+- [ ]  module federation (mb)
