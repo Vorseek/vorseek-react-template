@@ -1,12 +1,14 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { TsconfigPathsPlugin } = require('tsconfig-paths-webpack-plugin');
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-
-const path = require('path');
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import path from 'path';
+import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
+import type { Configuration } from 'webpack';
+import 'webpack-dev-server';
+import { isFilledItemData } from './src/utils/typeguards';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
-module.exports = {
+const config: Configuration = {
   entry: './src/index.tsx',
   context: path.resolve(__dirname, './'),
   mode: isDevelopment ? 'development' : 'production',
@@ -57,5 +59,7 @@ module.exports = {
     }),
     // Webpack plugin to enable "Fast Refresh" (also known as Hot Reloading) for React components.
     isDevelopment && new ReactRefreshWebpackPlugin(),
-  ].filter(Boolean),
+  ].filter(isFilledItemData),
 };
+
+export default config;
