@@ -13,3 +13,5 @@
 - [ ] react router
 
 - [ ]  module federation (mb)
+
+- [ ] jest
