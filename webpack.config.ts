@@ -14,11 +14,14 @@ const config: Configuration = {
   mode: isDevelopment ? 'development' : 'production',
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: isDevelopment ? '[name].js' : '[name]-[fullhash].js',
-    chunkFilename: isDevelopment ? '[name].js' : '[name]-[fullhash].js',
+    // Add /* filename */ comments to generated require()s in the output.
+    pathinfo: isDevelopment,
+    filename: isDevelopment ? 'static/js/[name].chunk.js' : 'static/js/[name]-[contenthash:8].chunk.js',
+    chunkFilename: isDevelopment ? 'static/js/[name].chunk.js' : 'static/js/[name]-[contenthash:8].chunk.js',
+    assetModuleFilename: 'static/media/[name].[hash][ext]',
     clean: true,
   },
-  stats: { modules: false, chunks: !isDevelopment, assets: false },
+  stats: "errors-warnings",
   devtool: isDevelopment ? 'eval-source-map' : false,
   devServer: {
     port: '3001',
@@ -56,6 +59,19 @@ const config: Configuration = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'index.html'),
       favicon: path.join(__dirname, 'public', 'favicon.ico'),
+      inject: true,
+      minify: isDevelopment ? undefined : {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true,
+      },
     }),
     // Webpack plugin to enable "Fast Refresh" (also known as Hot Reloading) for React components.
     isDevelopment && new ReactRefreshWebpackPlugin(),
