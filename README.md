@@ -1,6 +1,6 @@
 # React example app
 
-- [x] babel
+- [x] replace babel with swc
 
 - [ ] webpack config **WIP**
 
