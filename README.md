@@ -1,6 +1,6 @@
 # React example app
 
-- [x] replace babel with swc
+- [x] replace babel with swc (prod build time decreased 25% - 30%)
 
 - [ ] webpack config **WIP**
 
@@ -12,6 +12,8 @@
 
 - [ ] react router
 
-- [ ]  module federation (mb)
+- [ ] module federation (mb)
 
 - [ ] jest
+
+- [ ] husky (pre-push hook)
