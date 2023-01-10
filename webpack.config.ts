@@ -36,6 +36,29 @@ const config: Configuration = {
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
   },
   optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+          name: 'react-framework',
+          chunks: 'all',
+        },
+        defaultVendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+          reuseExistingChunk: true,
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
+        },
+      },
+      chunks: 'all',
+      maxInitialRequests: 30,
+      maxAsyncRequests: 30,
+      maxSize: 250000,
+    },
     minimize: !isDevelopment,
     minimizer: [
       new TerserPlugin({
