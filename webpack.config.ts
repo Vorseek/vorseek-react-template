@@ -5,7 +5,7 @@ import TerserPlugin from 'terser-webpack-plugin';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import type { Configuration } from 'webpack';
 import 'webpack-dev-server';
-import { isFilledItemData } from './src/utils/typeguards';
+import { isFilledItem } from './src/utils/typeguards';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -117,7 +117,7 @@ const config: Configuration = {
     }),
     // Webpack plugin to enable "Fast Refresh" (also known as Hot Reloading) for React components.
     isDevelopment && new ReactRefreshWebpackPlugin(),
-  ].filter(isFilledItemData),
+  ].filter(isFilledItem),
 };
 
 export default config;
